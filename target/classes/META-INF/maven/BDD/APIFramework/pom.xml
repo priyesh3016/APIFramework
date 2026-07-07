@@ -23,7 +23,7 @@
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
-    <version>7.14.0</version>
+    <version>7.23.0</version>
     <scope>test</scope>
 </dependency>
 
@@ -43,6 +43,19 @@
     <type>pom</type>
     <scope>compile</scope>
 </dependency>
-  
+
+  	<dependency>
+  		<groupId>AutoQA</groupId>
+  		<artifactId>ExtendReports</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<!-- Source: https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.11</version>
+    <scope>test</scope>
+</dependency>
   </dependencies>
 </project>
