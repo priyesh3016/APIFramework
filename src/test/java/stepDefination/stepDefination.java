@@ -1,5 +1,6 @@
 package stepDefination;
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
@@ -61,13 +63,14 @@ public void user_calls_with_post_http_request(String string) {
 
 @Then("the API call got success with status code {int}")
 public void the_api_call_got_success_with_status_code(Integer int1) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+   assertEquals(response.getStatusCode(), 200);
 }
 
 @Then("{string} in response body is {string}")
-public void in_response_body_is(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+public void in_response_body_is(String keyValue, String Expectedvalue) {
+	 	String resp =  response.asString();
+	 	JsonPath js = new JsonPath(resp);
+	 	assertEquals(js.get(keyValue).toString(), Expectedvalue);
 }
+
 }
