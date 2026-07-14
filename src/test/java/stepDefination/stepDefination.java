@@ -18,40 +18,23 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import pojo.AddPlace;
 import pojo.Location;
+import resources.TestDataBuild;
+import resources.Utils;
 
 
-public class stepDefination{
+public class stepDefination extends Utils{
 	ResponseSpecification resspec;
 	RequestSpecification res;
 	Response response;
-	
+	TestDataBuild data = new TestDataBuild();
 @Given("Add Place Payload")
 public void add_place_payload() {
 	
-	RestAssured.baseURI= "https://rahulshettyacademy.com/";
-	AddPlace p = new AddPlace();
-	p.setAccuracy(50);
-	p.setAddress("29, side layout, cohen 09");
-	p.setLanguage("French-IN");
-	p.setPhone_number("(+91) 983 893 3937");
-	p.setWebsite("http://Rahulshettyacadaemy.com");
-	p.setName("FrontLineHouse");
-	List<String> myList = new  ArrayList<String>();
-	myList.add("shoe park");
-	myList.add("shop");
-	p.setTypes(myList);
-	
-	Location l = new  Location();
-	l.setLat(-38.383494);
-	l.setLng(33.427362);
-	
-	
-	RequestSpecification req = new  RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addQueryParam("key", "qaclick123")
-	.build();
-	p.setLocation(l);	
+;
+
 	 resspec  =  new  ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-	 res=given().spec(req)
-			.body(p);
+	 res=given().spec(requestSpecification())
+			.body(data.addPlacePayload());
    
 }
 
