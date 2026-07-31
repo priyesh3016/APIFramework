@@ -37,7 +37,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/PRIYESH/Downloads/groovy-all-3.0.25-groovydoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/PRIYESH/Downloads/junit-4.13.2.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/junit-4.13.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
