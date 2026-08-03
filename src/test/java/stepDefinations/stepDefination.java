@@ -2,7 +2,7 @@ package stepDefinations;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class stepDefination extends Utils{
 	TestDataBuild data = new TestDataBuild();
 	
 @Given("Add Place Payload")
-public void add_place_payload() throws FileNotFoundException {
+public void add_place_payload() throws IOException {
 	res = given().spec(requestSpecification())
             .body(data.addPlacePayload());
 }
