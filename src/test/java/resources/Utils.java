@@ -14,9 +14,13 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public class Utils {
-    RequestSpecification req;
+  public  static   RequestSpecification req;
 
-    public RequestSpecification requestSpecification() throws IOException {
+    public RequestSpecification requestSpecification() throws IOException 
+    
+    
+    {
+    	if(req == null) {
         PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
         req = new RequestSpecBuilder()
                 .setBaseUri(getGlobalValue("baseUrl"))
@@ -27,6 +31,8 @@ public class Utils {
                 .build();
 
         return req;
+        }
+    	return req;
     }
     
     
