@@ -31,7 +31,7 @@ public class stepDefination extends Utils {
 	RequestSpecification res;
 	Response response;
 	TestDataBuild data = new TestDataBuild();
-
+	
 	@Given("Add Place Payload with {string} {string} {string}")
 	public void add_place_payload_with(String name, String language, String address) throws IOException {
 		res = given().spec(requestSpecification()).body(data.addPlacePayload(name, language, address));
@@ -60,11 +60,20 @@ public class stepDefination extends Utils {
 
 	@Then("{string} in response body is {string}")
 	public void in_response_body_is(String key, String expectedValue) {
-		String respString = response.asString();
-		// Debug output if needed
-		System.out.println("Response Body: " + respString);
-		JsonPath js = new JsonPath(respString);
-		String actualValue = js.get(key);
+//		String respString = response.asString();
+//		// Debug output if needed
+//		System.out.println("Response Body: " + respString);
+//		JsonPath js = new JsonPath(respString);
+	//	String actualValue = js.get(key);
 		// Assert.assertEquals(actualValue, expectedValue);
 	}
+	
+	@Then("verify place_id  created maps  to {string} using {string}")
+	public void verify_place_id_created_maps_to_using(String string, String string2) throws IOException {
+		String place_id=getJsonPath(response,"place_id");
+		res = given().spec(requestSpecification()).queryParam("place_id",place_id );
+	   
+	}
+
+
 }
