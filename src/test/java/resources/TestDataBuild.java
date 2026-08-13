@@ -30,4 +30,10 @@ public class TestDataBuild {
 		p.setLocation(l);
 		return p;
 	}
+	
+	
+	public String deletePlacePayload(String placeId) {
+			
+		return "{\n    \"place_id\":\""+placeId+"\"\n}\n";
+	}	
 }
